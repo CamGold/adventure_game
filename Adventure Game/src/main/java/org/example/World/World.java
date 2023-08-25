@@ -4,6 +4,7 @@ import org.example.Items.Food;
 import org.example.Items.Item;
 import org.example.Items.Misc;
 import org.example.Items.Weapon;
+import org.example.Player.Inventory;
 import org.example.Player.Player;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class World {
     public int getSize(){
         return this.worldSize;
     }
+
 
 
 }

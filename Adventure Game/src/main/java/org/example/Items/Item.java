@@ -12,4 +12,5 @@ public interface Item {
     int getItemValue();
     int getX();
     int getY();
+    String getName();
 }

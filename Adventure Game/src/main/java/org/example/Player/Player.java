@@ -11,6 +11,8 @@ import static org.example.Player.Direction.*;
 public class Player {
     private int health = 100;
     private List<Item> inventory = new ArrayList<>();
+    private Inventory items;
+
 
     public Direction direction = NORTH;
 
@@ -23,6 +25,7 @@ public class Player {
     public Player(String name, World world){
         this.name = name;
         this.world = world;
+        this.items = new Inventory(this);
     }
 
     public int getX(){
@@ -30,6 +33,13 @@ public class Player {
     }
     public int getY(){
         return this.y;
+    }
+
+    public List<Item> getInventory(){
+        return this.inventory;
+    }
+    public void addToInventory(Item item){
+        this.inventory.add(item);
     }
 
     public void updateDirection(Direction direction){
@@ -49,6 +59,7 @@ public class Player {
         else{
             this.x = newX;
         }
+        onItem();
     }
     public void updateY(int steps, boolean forward){
         int newY = this.y += steps;
@@ -63,6 +74,7 @@ public class Player {
         else{
             this.y = newY;
         }
+        onItem();
     }
 
     public void setX(int x){
@@ -83,7 +95,7 @@ public class Player {
 
     @Override
     public String toString(){
-        return this.name+"-> Health: " +this.health+", Direction: "+this.direction+", Position: ["+this.x+","+this.y+"]" ;
+        return this.name+"-> Health: " +this.health+", Direction: "+this.direction+", Position: ["+this.x+","+this.y+"] Inventory: "+inventory ;
     }
     public boolean atEdge(int x, int y){
         if (inWorldX(world.getSize(), x) || inWorldY(world.getSize(), y)){
@@ -100,14 +112,12 @@ public class Player {
         return y >= size || y <= (-size);
     }
 
-    public boolean onItem(){
-        boolean onItem = false;
+    public void onItem(){
         for(Item item : world.getWorldObjects()){
             if (x == item.getX() && y == item.getY()){
-                return true;
+                items.addToInventory(item);
             }
         }
-        return false;
     }
 
 

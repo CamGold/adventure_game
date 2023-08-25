@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.Commands.CommandHandler;
+import org.example.Player.Inventory;
 import org.example.Player.Player;
 import org.example.World.World;
 
@@ -15,9 +16,12 @@ public class Play {
 
     private CommandHandler handler = new CommandHandler();
 
+    private Inventory inventory;
+
     public Play(Player player, World world){
         this.player = player;
         this.world = world;
+
         scanner = new Scanner(System.in);
         boolean play = true;
         while(play) {
