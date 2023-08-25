@@ -28,6 +28,10 @@ public class Player {
         return this.y;
     }
 
+    public void updateDirection(Direction direction){
+        this.direction = direction;
+    }
+
     public void updateX(int steps){
         this.x += steps;
     }

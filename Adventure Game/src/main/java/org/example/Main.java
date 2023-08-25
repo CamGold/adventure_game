@@ -1,6 +1,8 @@
 package org.example;
 
+import org.example.Items.Item;
 import org.example.Player.Player;
+import org.example.World.World;
 
 import java.util.Scanner;
 
@@ -13,7 +15,9 @@ public class Main {
         String name = getInput("What would you like to name your Character?: ");
         System.out.println("Hello "+name);
         Player player = new Player(name);
-        System.out.println(player);
+        World world = new World(200, player);
+        int count = 1;
+        int count2 = 0;
     }
     private static String getInput(String prompt){
         System.out.println(prompt);
