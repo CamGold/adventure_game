@@ -16,9 +16,8 @@ public class World {
     private Player player;
     List<Item> worldObjects = new ArrayList<>();
 
-    public World(int size, Player player){
+    public World(int size){
         this.worldSize = size;
-        this.player = player;
         setWorldObjects();
     }
 
@@ -32,21 +31,9 @@ public class World {
         return this.worldObjects;
     }
 
-    public boolean atEdge(){
-        if (player.getX() >= worldSize || player.getY() >= worldSize){
-            return true;
-        }
-        return false;
+    public int getSize(){
+        return this.worldSize;
     }
 
-    public boolean onItem(){
-        boolean onItem = false;
-        for(Item item : worldObjects){
-            if (player.getX() == item.getX() && player.getY() == item.getY()){
-                return true;
-            }
-        }
-        return false;
-    }
 
 }
