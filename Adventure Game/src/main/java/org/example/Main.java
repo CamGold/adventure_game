@@ -14,8 +14,8 @@ public class Main {
         scanner = new Scanner(System.in);
         String name = getInput("What would you like to name your Character?: ");
         System.out.println("Hello "+name);
-        Player player = new Player(name);
-        World world = new World(200, player);
+        World world = new World(200);
+        Player player = new Player(name, world);
         new Play(player, world);
     }
     private static String getInput(String prompt){
