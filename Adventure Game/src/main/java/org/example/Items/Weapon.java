@@ -1,12 +1,19 @@
 package org.example.Items;
 
-import org.example.Player.ItemType;
-
 public class Weapon implements Item{
+
+    private String name = "";
     private final ItemType type = ItemType.Weapon;
     int itemValue = 0;
     int x = 0;
     int y = 0;
+
+    public Weapon(int x, int y, String name, int value){
+        this.x = x;
+        this.y = y;
+        this.itemValue = value;
+        this.name = name;
+    }
 
     @Override
     public ItemType getType() {
@@ -31,5 +38,10 @@ public class Weapon implements Item{
     @Override
     public int getItemValue() {
         return this.itemValue;
+    }
+
+    @Override
+    public String toString(){
+        return this.name + ", Damage: " +this.itemValue;
     }
 }

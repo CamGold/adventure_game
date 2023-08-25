@@ -1,4 +1,4 @@
-package org.example.Player;
+package org.example.Items;
 
 public enum ItemType {
     Food,

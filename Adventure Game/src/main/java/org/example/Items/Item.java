@@ -1,7 +1,5 @@
 package org.example.Items;
 
-import org.example.Player.ItemType;
-
 public interface Item {
 
 
