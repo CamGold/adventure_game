@@ -10,4 +10,6 @@ public interface Item {
 
     void setItemValue(int value);
     int getItemValue();
+    int getX();
+    int getY();
 }

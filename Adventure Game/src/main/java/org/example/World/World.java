@@ -34,11 +34,19 @@ public class World {
 
     public boolean atEdge(){
         if (player.getX() >= worldSize || player.getY() >= worldSize){
-            System.out.println("Player is at the edge of the world!");
             return true;
         }
         return false;
     }
 
+    public boolean onItem(){
+        boolean onItem = false;
+        for(Item item : worldObjects){
+            if (player.getX() == item.getX() && player.getY() == item.getY()){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

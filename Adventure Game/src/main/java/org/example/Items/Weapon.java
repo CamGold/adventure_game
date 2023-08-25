@@ -41,6 +41,16 @@ public class Weapon implements Item{
     }
 
     @Override
+    public int getX() {
+        return this.x;
+    }
+
+    @Override
+    public int getY() {
+        return this.y;
+    }
+
+    @Override
     public String toString(){
         return this.name + ", Damage: " +this.itemValue;
     }
