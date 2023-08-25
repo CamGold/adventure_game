@@ -11,7 +11,7 @@ public class Player {
     private int health = 100;
     private List<Item> inventory = new ArrayList<>();
 
-    private Direction direction = NORTH;
+    public Direction direction = NORTH;
 
     public String name;
     private int x = 0;
@@ -37,6 +37,21 @@ public class Player {
     }
     public void updateY(int steps){
         this.y+= steps;
+    }
+
+    public void setX(int x){
+        this.x = x;
+    }
+
+    public void setY(int y){
+        this.y = y;
+    }
+
+    public void setDirection(Direction direction){
+        this.direction = direction;
+    }
+    public Direction getDirection(){
+        return this.direction;
     }
 
 

@@ -16,8 +16,7 @@ public class Main {
         System.out.println("Hello "+name);
         Player player = new Player(name);
         World world = new World(200, player);
-        int count = 1;
-        int count2 = 0;
+        new Play(player, world);
     }
     private static String getInput(String prompt){
         System.out.println(prompt);
