@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.Items.Item;
+import org.example.Player.Inventory;
 import org.example.Player.Player;
 import org.example.World.World;
 
