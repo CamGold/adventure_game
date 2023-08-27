@@ -13,7 +13,7 @@ public class ForwardCommand extends Command{
                 case SOUTH -> player.updateX(-steps, false);
                 case WEST -> player.updateY(-steps, false);
             }
-            System.out.println(player.name + " moved forward by: " + steps + " steps.");
+
         } else{
             System.out.println(arg+" is not a valid number.");
         }
