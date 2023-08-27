@@ -1,5 +1,7 @@
 package org.example.Player;
 
+import org.example.Enemies.Battle;
+import org.example.Enemies.Enemy;
 import org.example.Items.Item;
 import org.example.World.World;
 
@@ -10,6 +12,7 @@ import static org.example.Player.Direction.*;
 
 public class Player {
     private int health = 100;
+    private int damage = 5;
     private List<Item> inventory = new ArrayList<>();
     private Inventory items;
 
@@ -42,6 +45,19 @@ public class Player {
         this.inventory.add(item);
     }
 
+    public int getDamage(){
+        return this.damage;
+    }
+    public void updateDamage(int damageBuff){
+        this.damage += damageBuff;
+    }
+    public void updateHealth(int health){
+        this.health += health;
+    }
+    public int getHealth(){
+        return this.health;
+    }
+
     public void updateDirection(Direction direction){
         this.direction = direction;
     }
@@ -60,6 +76,7 @@ public class Player {
             this.x = newX;
         }
         onItem();
+        onEnemy();
     }
     public void updateY(int steps, boolean forward){
         int newY = this.y += steps;
@@ -75,6 +92,7 @@ public class Player {
             this.y = newY;
         }
         onItem();
+        onEnemy();
     }
 
     public void setX(int x){
@@ -116,6 +134,15 @@ public class Player {
         for(Item item : world.getWorldObjects()){
             if (x == item.getX() && y == item.getY()){
                 items.addToInventory(item);
+            }
+        }
+    }
+
+    public void onEnemy(){
+        for(Enemy enemy : world.getWorldEnemies()){
+            if (x == enemy.getX() && y == enemy.getY()){
+                Battle battle = new Battle(this, enemy);
+                battle.start();
             }
         }
     }
