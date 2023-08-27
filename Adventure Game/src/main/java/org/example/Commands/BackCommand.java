@@ -13,7 +13,7 @@ public class BackCommand extends Command{
                 case SOUTH -> player.updateX(steps, true);
                 case WEST -> player.updateY(steps,true);
             }
-            System.out.println(player.name + " moved backward by: " + steps + " steps.");
+
         } else {
             System.out.println(arg + " is not a valid number.");
         }

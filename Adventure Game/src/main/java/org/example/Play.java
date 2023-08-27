@@ -5,6 +5,7 @@ import org.example.Player.Inventory;
 import org.example.Player.Player;
 import org.example.World.World;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Play {
@@ -13,20 +14,25 @@ public class Play {
     private Player player;
 
     private Scanner scanner;
+    public boolean play = true;
 
     private CommandHandler handler = new CommandHandler();
 
     private Inventory inventory;
 
     public Play(Player player, World world){
+
         this.player = player;
         this.world = world;
 
         scanner = new Scanner(System.in);
-        boolean play = true;
         while(player.getHealth()>0) {
             String command = getInput("What is your command");
-            handler.handleCommand(command, player, world);
+            try {
+                handler.handleCommand(command, player, world);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
             System.out.println(player);
         }
 

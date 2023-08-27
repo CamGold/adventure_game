@@ -13,6 +13,6 @@ public class RightCommand {
             case SOUTH -> player.setDirection(Direction.WEST);
             case WEST -> player.setDirection(Direction.NORTH);
         }
-        System.out.println(player.name+ " turned right.");
+
     }
 }

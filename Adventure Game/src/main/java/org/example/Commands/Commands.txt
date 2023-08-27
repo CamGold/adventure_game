@@ -1,0 +1,3 @@
+forward/back {number of steps} -> This moves the player forward/back a specified number of steps.
+right/left -> Changes the direction the player is facing.
+quit -> Quits the game.
