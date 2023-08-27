@@ -24,11 +24,13 @@ public class Play {
 
         scanner = new Scanner(System.in);
         boolean play = true;
-        while(play) {
+        while(player.getHealth()>0) {
             String command = getInput("What is your command");
             handler.handleCommand(command, player, world);
             System.out.println(player);
         }
+
+        System.out.println("You have died! HAHA");
 
     }
 
