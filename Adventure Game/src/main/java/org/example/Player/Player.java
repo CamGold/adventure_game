@@ -2,7 +2,10 @@ package org.example.Player;
 
 import org.example.Enemies.Battle;
 import org.example.Enemies.Enemy;
+import org.example.Items.Armor;
+import org.example.Items.Food;
 import org.example.Items.Item;
+import org.example.Items.Weapon;
 import org.example.World.World;
 
 import java.util.ArrayList;
@@ -68,6 +71,24 @@ public class Player {
         this.direction = direction;
     }
 
+    public void equipArmor(Item armor){
+        this.defense += armor.getItemValue();
+    }
+    public void equipWeapon(Item weapon){
+        this.damage += weapon.getItemValue();
+    }
+    public void eat(Item food){
+        if(this.health==100){
+            System.out.println("You are already at full health.");
+        }
+        else{
+            this.health += food.getItemValue();
+            if(this.health > 100){
+                this.health = 100;
+            }
+        }
+    }
+
     public void updateX(int steps, boolean forward){
         int newX = this.x += steps;
         if (atEdge(newX, 0)){
@@ -117,17 +138,12 @@ public class Player {
     }
 
 
-    @Override
-    public String toString(){
-        return this.name+"-> Health: " +this.health+", Direction: "+this.direction+", Position: ["+this.x+","+this.y+"] Inventory: "+inventory ;
-    }
     public boolean atEdge(int x, int y){
         if (inWorldX(world.getSize(), x) || inWorldY(world.getSize(), y)){
             return true;
         }
         return false;
     }
-
     public boolean inWorldX(int size, int x){
         return x >= size || x <= (-size);
     }
@@ -151,6 +167,11 @@ public class Player {
                 battle.start();
             }
         }
+    }
+
+    @Override
+    public String toString(){
+        return this.name+"-> Health: " +this.health+", Damage: "+this.damage + ", Armor: "+this.defense +", Direction: "+this.direction+", Position: ["+this.x+","+this.y+"]";
     }
 
 
