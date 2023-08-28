@@ -28,15 +28,25 @@ public class Battle {
                     System.out.println("You have attacked the "+enemy.getName());
                 }
                 case "block" -> {
-                    System.out.println("You have blocked the attack.");
-                    enemyHitChance = 0;
+                    if(player.getDefense() > 0){
+                        System.out.println("You have blocked the attack.");
+                    }else{
+                        System.out.println("Your armor is broken!");
+                        action = "";
+                    }
                 }
             }
             switch (enemyHitChance) {
                 case 1 -> {
-                    System.out.println("The enemy hit you");
-                    player.updateHealth(-enemy.getDamage());
-                    System.out.println("Your health is now "+player.getHealth());
+                    if(action.equals("block")){
+                        System.out.println("The enemy damaged your armor.");
+                        player.updateDefence(-enemy.getDamage());
+                        System.out.println("Your armor is now " + player.getDefense());
+                    }else {
+                        System.out.println("The enemy hit you");
+                        player.updateHealth(-enemy.getDamage());
+                        System.out.println("Your health is now " + player.getHealth());
+                    }
                 }
                 case 2 -> System.out.println("The enemy missed it's attack!");
             }

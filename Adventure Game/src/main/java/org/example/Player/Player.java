@@ -13,6 +13,7 @@ import static org.example.Player.Direction.*;
 public class Player {
     private int health = 100;
     private int damage = 5;
+    private int defense = 20;
     private List<Item> inventory = new ArrayList<>();
     private Inventory items;
 
@@ -57,7 +58,12 @@ public class Player {
     public int getHealth(){
         return this.health;
     }
-
+    public int getDefense(){
+        return this.defense;
+    }
+    public void updateDefence(int update){
+        this.defense+=update;
+    }
     public void updateDirection(Direction direction){
         this.direction = direction;
     }
