@@ -8,10 +8,26 @@ public class BackCommand extends Command{
         if (isNumeric(arg)) {
             int steps = Integer.parseInt(arg);
             switch (player.getDirection()) {
-                case NORTH -> player.updateX(-steps, false);
-                case EAST -> player.updateY(-steps, false);
-                case SOUTH -> player.updateX(steps, true);
-                case WEST -> player.updateY(steps,true);
+                case NORTH -> {
+                    for(int i = 1; i<=steps; i++) {
+                        player.updateX(-1, false);
+                    }
+                }
+                case EAST -> {
+                    for(int i = 1; i<=steps; i++) {
+                        player.updateY(-1, false);
+                    }
+                }
+                case SOUTH -> {
+                    for(int i = 1; i<=steps; i++) {
+                        player.updateX(1, true);
+                    }
+                }
+                case WEST -> {
+                    for(int i = 1; i<=steps; i++) {
+                        player.updateY(1, true);
+                    }
+                }
             }
 
         } else {
