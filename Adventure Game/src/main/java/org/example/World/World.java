@@ -4,10 +4,7 @@ import org.example.Enemies.Animal;
 import org.example.Enemies.Enemy;
 import org.example.Enemies.Human;
 import org.example.Enemies.Undead;
-import org.example.Items.Food;
-import org.example.Items.Item;
-import org.example.Items.Misc;
-import org.example.Items.Weapon;
+import org.example.Items.*;
 import org.example.Player.Inventory;
 import org.example.Player.Player;
 
@@ -32,6 +29,7 @@ public class World {
         this.worldObjects.add(new Food(20, 30, "Bread", 20));
         this.worldObjects.add(new Weapon(10, 50, "Sword", 10));
         this.worldObjects.add(new Misc(15, 60, "Mug", 15));
+        this.worldObjects.add(new Armor(10, 20, "Dwarven Armor", 50));
     }
 
     private void setWorldEnemies(){

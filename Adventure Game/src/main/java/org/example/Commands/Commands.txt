@@ -1,3 +1,14 @@
+HELP:
+******************************************************************************************************
+Traversing World:
+
 forward/back {number of steps} -> This moves the player forward/back a specified number of steps.
 right/left -> Changes the direction the player is facing.
+inv -> Opens the player's inventory.
 quit -> Quits the game.
+*******************************************************************************************************
+In Battle:
+
+attack -> Attacks the enemy.
+block -> blocks enemy attack.
+********************************************************************************************************

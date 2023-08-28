@@ -26,6 +26,7 @@ public class CommandHandler {
                 System.out.println(player.name +" turned left.");
                 new LeftCommand(player, world);
             }
+            case "inv" -> new InventoryCommand(player, world);
             case "quit" -> new QuitCommand();
             case "help" -> new HelpCommand();
             default -> new InvalidCommand(command);
