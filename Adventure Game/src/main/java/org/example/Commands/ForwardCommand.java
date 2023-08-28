@@ -8,10 +8,26 @@ public class ForwardCommand extends Command{
         if (isNumeric(arg)) {
             int steps = Integer.parseInt(arg);
             switch (player.getDirection()) {
-                case NORTH -> player.updateX(steps, true);
-                case EAST -> player.updateY(steps, true);
-                case SOUTH -> player.updateX(-steps, false);
-                case WEST -> player.updateY(-steps, false);
+                case NORTH -> {
+                    for(int i = 1; i<=steps; i++) {
+                        player.updateX(1, true);
+                    }
+                }
+                case EAST -> {
+                    for(int i = 1; i<=steps; i++) {
+                        player.updateY(1, true);
+                    }
+                }
+                case SOUTH -> {
+                    for(int i = 1; i<=steps; i++) {
+                        player.updateX(-1, false);
+                    }
+                }
+                case WEST -> {
+                    for(int i = 1; i<=steps; i++) {
+                        player.updateY(-1, false);
+                    }
+                }
             }
 
         } else{
