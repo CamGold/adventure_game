@@ -18,20 +18,6 @@ public class Misc implements Item{
         return this.type;
     }
 
-    @Override
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    @Override
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    @Override
-    public void setItemValue(int value) {
-        this.itemValue = value;
-    }
 
     @Override
     public int getItemValue() {
